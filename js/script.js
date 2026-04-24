@@ -1,16 +1,21 @@
 // Basic JavaScript for Criz Clothing website
 
-// Add to cart functionality (placeholder)
 document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.product button');
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', filterProducts);
+    }
 
+    // Add to cart functionality
+    const addToCartButtons = document.querySelectorAll('.product button');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
             alert('Item added to cart! (This is a placeholder)');
         });
     });
 
-    // Contact form submission (placeholder)
+    // Contact form submission
     const contactForm = document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -19,9 +24,39 @@ document.addEventListener('DOMContentLoaded', function() {
             contactForm.reset();
         });
     }
+
+    // Dropdown menu click handling
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function() {
+            this.classList.add('active');
+        });
+        dropdown.addEventListener('mouseleave', function() {
+            this.classList.remove('active');
+        });
+    });
 });
 
-// Smooth scrolling for navigation (if needed)
+// Filter products based on search
+function filterProducts() {
+    const searchInput = document.getElementById('search-input');
+    const filter = searchInput.value.toLowerCase();
+    const productGrid = document.getElementById('product-grid');
+    const products = productGrid.querySelectorAll('.product');
+
+    products.forEach(product => {
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        const category = product.querySelector('.category').textContent.toLowerCase();
+        
+        if (title.includes(filter) || category.includes(filter)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+// Smooth scrolling for navigation
 const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
