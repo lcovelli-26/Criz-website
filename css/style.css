@@ -142,6 +142,8 @@ header {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s;
+    text-decoration: none;
+    color: inherit;
 }
 
 .category-item:hover {
@@ -605,6 +607,34 @@ footer {
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
+}
+
+/* Category Pages */
+#category {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.category-header {
+    background: linear-gradient(135deg, #2c5530 0%, #1e3a22 100%);
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+    margin: -40px -40px 60px -40px;
+    border-radius: 0;
+}
+
+.category-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.category-header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    line-height: 1.6;
 }
 
 /* Responsive design */
